@@ -1,0 +1,80 @@
+﻿<Window x:Class="HeatBalance.Views.GAParameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Параметры ГА" Height="300" Width="300">
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="3"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="3"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+		</Grid.RowDefinitions>
+		<Grid.Resources>
+			<Style TargetType="Label">
+				<Setter Property="HorizontalContentAlignment" Value="Center"/>
+				<Setter Property="VerticalContentAlignment" Value="Center"/>
+			</Style>
+			<Style TargetType="TextBox">
+				<Setter Property="HorizontalContentAlignment" Value="Center"/>
+				<Setter Property="VerticalContentAlignment" Value="Center"/>
+			</Style>
+		</Grid.Resources>
+
+		<TextBox 
+			Grid.Column="1" 
+			Grid.Row="1" 
+			Text="{Binding GAParams.PCount, Mode=TwoWay}"/>
+		<Label 
+			Grid.Column="3" 
+			Grid.Row="1" 
+			Content="Количество особей"/>
+
+		<TextBox
+			Grid.Column="1" 
+			Grid.Row="3" 
+			Text="{Binding GAParams.ChildrenCount, Mode=TwoWay}"/>
+		<Label 
+			Grid.Column="3" 
+			Grid.Row="3" 
+			Content="Количество детей"/>
+
+		<TextBox 
+			Grid.Column="1" 
+			Grid.Row="5" 
+			Text="{Binding GAParams.MutationChance, Mode=TwoWay}"/>
+		<Label 
+			Grid.Column="3" 
+			Grid.Row="5" 
+			Content="Шанс мутации"/>
+
+		<TextBox 
+			Grid.Column="1" 
+			Grid.Row="7" 
+			Text="{Binding GAParams.Generations, Mode=TwoWay}"/>
+		<Label 
+			Grid.Column="3" 
+			Grid.Row="7" 
+			Content="Количество поколений"/>
+		
+		<Button 
+			Grid.Column="1" 
+			Grid.Row="9" 
+			Grid.ColumnSpan="3" 
+			Content="Оптимизировать" 
+            Command="{Binding Path=CommandsViewModel.GAParams}"/>
+	</Grid>
+</Window>

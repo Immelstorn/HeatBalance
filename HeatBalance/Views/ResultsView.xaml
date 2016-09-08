@@ -1,0 +1,44 @@
+﻿<Window x:Class="HeatBalance.Views.ResultsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Результаты" Height="200" Width="320" ResizeMode="NoResize">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="3"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="3"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="3"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+			<RowDefinition/>
+			<RowDefinition Height="3"/>
+		</Grid.RowDefinitions>
+		<Grid.Resources>
+			<Style TargetType="Label">
+				<Setter Property="HorizontalContentAlignment" Value="Center"/>
+				<Setter Property="VerticalContentAlignment" Value="Center"/>
+			</Style>
+			<Style TargetType="TextBox">
+				<Setter Property="HorizontalContentAlignment" Value="Center"/>
+				<Setter Property="VerticalContentAlignment" Value="Center"/>
+			</Style>
+		</Grid.Resources>
+        
+		<Label Name="lblZavalka" Grid.Column="1" Grid.Row="1" Content="{Binding Zavalka}" ContentStringFormat="{}{0:F03} т" />
+		<Label Name="lblZavalkaText" Content="Вес плавки на завалке" Grid.Column="3" Grid.Row="1"/>
+
+        <Label Name="lblMst" Grid.Column="1" Grid.Row="3" Content="{Binding Mst}" ContentStringFormat="{}{0:F03} т"/>
+		<Label Name="lblMstText"  Grid.Column="3" Grid.Row="3">
+			<TextBlock Text="Получено стали без раскислителей" TextWrapping="WrapWithOverflow" TextAlignment="Center" />
+		</Label>
+        
+		<Label Name="lblMLoma" Grid.Column="1" Grid.Row="5" Content="{Binding MLomaKorr}" ContentStringFormat="F03"/>
+		<Label Name="lblMlomaText" Content="Коррекция массы лома" Grid.Column="3" Grid.Row="5"/>
+	</Grid>
+</Window>

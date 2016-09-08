@@ -1,0 +1,226 @@
+﻿<Window x:Class="HeatBalance.Views.GAResultsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Результаты ГА" Height="350" Width="650" Closing="Window_Closing_1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <!--<Setter Property="ContentStringFormat" Value="{}{0:F03} т"/>-->
+            </Style>
+        </Grid.Resources>
+
+        <Label 
+			Content="Значение" 
+			Grid.Column="1" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+        <Label 
+			Content="Название" 
+			Grid.Column="3" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+        <Label 
+			Content="Значение" 
+			Grid.Column="5" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+        <Label 
+			Content="Название" 
+			Grid.Column="7" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="3"
+			Text="{Binding Inputs.MChuguna, StringFormat=F3}"/>
+        <Label 
+			Content="Масса чугуна" 
+			Grid.Column="3" 
+			Grid.Row="3"/>
+        <TextBox 
+			Grid.Column="5"
+			Grid.Row="3" 
+			Text="{Binding Results.Fitness, StringFormat=F3}" />
+        <Label 
+			Content="Фитнесс" 
+			Grid.Column="7" 
+			Grid.Row="3"/>
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="5" 
+			Text="{Binding Inputs.MBoyChuguna, StringFormat=F3}"/>
+        <Label 
+			Content="Масса боя чугуна" 
+			Grid.Column="3" 
+			Grid.Row="5"/>
+        <TextBox
+			Grid.Column="5" 
+			Grid.Row="5" 
+			Text="{Binding Results.FinalPrice, StringFormat=F3}" />
+        <Label 
+			Content="Общая цена" 
+			Grid.Column="7" 
+			Grid.Row="5"/>
+
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="7" 
+			Text="{Binding Inputs.MChushkovogoChuguna, StringFormat=F3}" />
+        <Label
+			Content="Масса чушкового чугуна" 
+			Grid.Column="3" 
+			Grid.Row="7"/>
+        <TextBox 
+			Grid.Column="5" 
+			Grid.Row="7" 
+			Text="{Binding Results.Zavalka, StringFormat=F3}"/>
+        <Label 
+			Content="Завалка" 
+			Grid.Column="7" 
+			Grid.Row="7"/>
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="9" 
+			Text="{Binding Inputs.MLoma10PercentKre, StringFormat=F3}"/>
+        <Label 
+			Content="Масса лома (10% Кре)" 
+			Grid.Column="3" 
+			Grid.Row="9"/>
+        <TextBox 
+			Grid.Column="5" 
+			Grid.Row="9" 
+			Text="{Binding Results.Mst, StringFormat=F3}"/>
+        <Label 
+			Content="Масса стали" 
+			Grid.Column="7"
+			Grid.Row="9"/>
+
+        <TextBox
+			Grid.Column="1" 
+			Grid.Row="11" 
+			Text="{Binding Inputs.MLomaSt, StringFormat=F3}"/>
+        <Label 
+			Content="Масса лома (стального)" 
+			Grid.Column="3" 
+			Grid.Row="11"/>
+        <TextBox 
+			Grid.Column="5" 
+			Grid.Row="11" 
+			Text="{Binding Results.MLomaKorr, StringFormat=F3}"/>
+        <Label 
+			Content="Масса лома (коррекция)" 
+			Grid.Column="7" 
+			Grid.Row="11"/>
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="13" 
+			Text="{Binding Inputs.MScrapChugun, StringFormat=F3}"/>
+        <Label 
+			Content="Масса скрапа (чугун)" 
+			Grid.Column="3" 
+			Grid.Row="13"/>
+        <TextBox 
+            Text="{Binding GAmodel.Generation}" 
+            Grid.Column="5" 
+            Grid.Row="13"/>
+        <Label 
+            Content="Generation" 
+            Grid.Column="7" 
+            Grid.Row="13"/>
+
+        <TextBox
+			Grid.Column="1" 
+			Grid.Row="15" 
+			Text="{Binding Inputs.MScrapStal, StringFormat=F3}"/>
+        <Label
+			Content="Масса скрапа (сталь)" 
+			Grid.Column="3" 
+			Grid.Row="15"/>
+        <TextBox 
+            Text="{Binding GAmodel.BestFitness}" 
+            Grid.Column="5" 
+            Grid.Row="15"/>
+        <Label 
+            Content="Best Fitness" 
+            Grid.Column="7" 
+            Grid.Row="15"/>
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="17" 
+			Text="{Binding Inputs.MJSB, StringFormat=F3}"/>
+        <Label 
+			Content="Масса ЖСБ" 
+			Grid.Column="3" 
+			Grid.Row="17"/>
+        <TextBox 
+            Text="{Binding GAmodel.AverageFitness}" 
+            Grid.Column="5" 
+            Grid.Row="17"/>
+        <Label 
+            Content="Average Fitness" 
+            Grid.Column="7" 
+            Grid.Row="17"/>
+
+        <Button Content="Сохранить в файл"
+                Name="bntSave"
+                Grid.Column="1"
+                Grid.Row="19"
+                Grid.ColumnSpan="3"
+                Command="{Binding CommandsViewModel.SaveFile}"/>
+
+        <TextBox 
+            Text="{Binding GAmodel.Time}" 
+            Grid.Column="5" 
+            Grid.Row="19"/>
+        <Label 
+            Content="Time" 
+            Grid.Column="7" 
+            Grid.Row="19"/>
+    </Grid>
+</Window>

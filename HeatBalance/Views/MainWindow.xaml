@@ -1,0 +1,242 @@
+﻿<Window x:Class="HeatBalance.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:HeatBalance.ViewModels"
+        Title="Начальные значения" Height="350" Width="650" ResizeMode="NoResize" >
+    <Grid x:Name="grid" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+            <RowDefinition/>
+            <RowDefinition Height="3"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <!--<Setter Property="Text"  Value="{Binding StringFormat=F3}"/>-->
+            </Style>
+            <local:BooleanInverterConverter x:Key="BooleanInverterConverter" />
+        </Grid.Resources>
+
+        <Label 
+			Content="Значение" 
+			Grid.Column="1" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+        <Label 
+			Content="Диапазон (кг/100кг)" 
+			Grid.Column="3" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+        <Label 
+			Content="Название" 
+			Grid.Column="5" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+        <Label 
+			Content="Цена (грн/т)" 
+			Grid.Column="7" 
+			Grid.Row="1" 
+			FontWeight="Bold" />
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="3"
+			Text="{Binding Path=Inputs.MChuguna, Mode=TwoWay, StringFormat=F3}"
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter} }"  />
+        <Label 
+			Content="850-930" 
+			Grid.Column="3" 
+			Grid.Row="3"/>
+        <Label 
+			Content="Масса чугуна" 
+			Grid.Column="5" 
+			Grid.Row="3"/>
+        <TextBox 
+			Grid.Column="7"
+			Grid.Row="3" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MChugunaPrice, Mode=TwoWay}" />
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="5" 
+			Text="{Binding Path=Inputs.MBoyChuguna, Mode=TwoWay, StringFormat=F3}" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter}}"/>
+        <Label 
+			Content="0-15" 
+			Grid.Column="3" 
+			Grid.Row="5"/>
+        <Label 
+			Content="Масса боя чугуна" 
+			Grid.Column="5" 
+			Grid.Row="5"/>
+        <TextBox
+			Grid.Column="7" 
+			Grid.Row="5" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MBoyChugunaPrice, Mode=TwoWay}" />
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="7" 
+			Text="{Binding Path=Inputs.MChushkovogoChuguna, Mode=TwoWay, StringFormat=F3}" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter}}"/>
+        <Label
+			Content="0-50" 
+			Grid.Column="3" 
+			Grid.Row="7"/>
+        <Label 
+			Content="Масса чушкового чугуна" 
+			Grid.Column="5" 
+			Grid.Row="7"/>
+        <TextBox 
+			Grid.Column="7" 
+			Grid.Row="7" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MChushkovogoChugunaPrice, Mode=TwoWay}"/>
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="9" 
+			Text="{Binding Path=Inputs.MLoma10PercentKre, Mode=TwoWay, StringFormat=F3}" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter}}"/>
+        <Label 
+			Content="0-20" 
+			Grid.Column="3" 
+			Grid.Row="9"/>
+        <Label 
+			Content="Масса лома (10% Кре)" 
+			Grid.Column="5"
+			Grid.Row="9"/>
+        <TextBox 
+			Grid.Column="7" 
+			Grid.Row="9" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MLoma10PercentKrePrice, Mode=TwoWay}"/>
+
+        <TextBox
+			Grid.Column="1" 
+			Grid.Row="11" 
+			Text="{Binding Path=Inputs.MLomaSt, Mode=TwoWay, StringFormat=F3}" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter}}"/>
+        <Label 
+			Content="100-250" 
+			Grid.Column="3" 
+			Grid.Row="11"/>
+        <Label 
+			Content="Масса лома (стального)" 
+			Grid.Column="5" 
+			Grid.Row="11"/>
+        <TextBox 
+			Grid.Column="7" 
+			Grid.Row="11" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MLomaStPrice, Mode=TwoWay}"/>
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="13" 
+			Text="{Binding Path=Inputs.MScrapChugun, Mode=TwoWay, StringFormat=F3}" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter}}"/>
+        <Label 
+			Content="0-50" 
+			Grid.Column="3" 
+			Grid.Row="13"/>
+        <Label 
+			Content="Масса скрапа (чугун)" 
+			Grid.Column="5" 
+			Grid.Row="13"/>
+        <TextBox 
+			Grid.Column="7" 
+			Grid.Row="13" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MScrapChugunPrice, Mode=TwoWay}"/>
+
+        <TextBox
+			Grid.Column="1" 
+			Grid.Row="15" 
+			Text="{Binding Path=Inputs.MScrapStal, Mode=TwoWay, StringFormat=F3}" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter}}"/>
+        <Label
+			Content="0-50" 
+			Grid.Column="3" 
+			Grid.Row="15"/>
+        <Label 
+			Content="Масса скрапа (сталь)"
+			Grid.Column="5" 
+			Grid.Row="15"/>
+        <TextBox
+			Grid.Column="7" 
+			Grid.Row="15" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MScrapStalPrice, Mode=TwoWay}"/>
+
+        <TextBox 
+			Grid.Column="1" 
+			Grid.Row="17" 
+			Text="{Binding Path=Inputs.MJSB, Mode=TwoWay, StringFormat=F3}" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing, Converter={StaticResource BooleanInverterConverter}}"/>
+        <Label 
+			Content="0-15" 
+			Grid.Column="3" 
+			Grid.Row="17"/>
+        <Label 
+			Content="Масса ЖСБ" 
+			Grid.Column="5" 
+			Grid.Row="17"/>
+        <TextBox 
+			Grid.Column="7" 
+			Grid.Row="17" 
+			IsEnabled="{Binding Path=Inputs.IsOptimizing}" 
+			Text="{Binding Path=Inputs.MJSBPrice, Mode=TwoWay}"/>
+
+        <CheckBox 
+			Content="Оптимизировать" 
+			Grid.Column="1" 
+			Grid.Row="19" 
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" 
+			Checked="chkOptimize_Checked" 
+			Unchecked="chkOptimize_Unchecked"/>
+        <Button 
+			Content="Результат" 
+			Grid.Column="5" 
+			Grid.Row="19" 
+            Command="{Binding Path=CommandsViewModel.MainWindow}"
+			Grid.ColumnSpan="3"/>
+    </Grid>
+</Window>
